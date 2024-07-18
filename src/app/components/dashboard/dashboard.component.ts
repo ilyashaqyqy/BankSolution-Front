@@ -1,7 +1,6 @@
-// dashboard.component.ts
-
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
+import { Transaction } from '../../models/transaction';
 
 @Component({
   selector: 'app-dashboard',
@@ -9,17 +8,20 @@ import { AuthService } from '../../services/auth.service';
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
-  username: string | null = '';
+  username: string | null = null;
 
-  constructor(private authService: AuthService) {}
+  constructor(private authService: AuthService,
+    
+  ) {}
 
   ngOnInit(): void {
-    this.username = this.authService.getToken(); // Retrieve user information from the token or another service method
+    this.username = this.authService.getUsername();
   }
 
   logout(): void {
     this.authService.logout();
-    window.location.href = '/login';
   }
 }
+
+
 
