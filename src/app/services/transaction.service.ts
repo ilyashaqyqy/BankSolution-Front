@@ -10,9 +10,15 @@ import { Transaction } from '../models/transaction';
 })
 export class TransactionService {
 
-  private apiUrl = 'http://localhost:8060/api/transactions'; 
+  private apiUrl = 'http://localhost:8086/api/transactions'; 
 
   constructor(private http: HttpClient) { }
+
+
+  getTransactionsByCompteId(compteId: number): Observable<Transaction[]> {
+    return this.http.get<Transaction[]>(`${this.apiUrl}/compte/${compteId}`);
+  }
+
 
   // getTransactionsByUserId(userId: number): Observable<Transaction[]> {
   //   return this.http.get<Transaction[]>(`${this.apiUrl}/user/${userId}`);
