@@ -13,6 +13,8 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { FooterComponent } from './footer/footer.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TransactionComponent } from './components/transaction/transaction.component';
+import { BeneficiariesComponent } from './components/beneficiaries/beneficiaries.component';
+
 
 
 
@@ -24,6 +26,7 @@ import { TransactionComponent } from './components/transaction/transaction.compo
     NavbarComponent,
     FooterComponent,
     TransactionComponent,
+    BeneficiariesComponent,
 
   ],
   imports: [

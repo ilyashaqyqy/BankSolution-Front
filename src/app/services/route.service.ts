@@ -20,7 +20,7 @@ export class RouteService {
   isSidebarVisible(): Observable<boolean> {
    
     return this.currentRoute$.pipe(
-      map(route => ['/dashboard', '/wallet', '/transaction/13', '/statistics', '/messages', '/profile', '/help', '/settings'].includes(route))
+      map(route => ['/dashboard', '/wallet', '/transaction/13', '/beneficiaries', '/messages', '/profile', '/help', '/settings'].includes(route))
     );
   }
 }

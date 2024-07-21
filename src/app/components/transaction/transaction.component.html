@@ -1,5 +1,15 @@
+
+<button
+type="button"
+class=" absolute top-4 right-4 mt-4 mr-4 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 focus text-white px-4 py-2 rounded-full transform hover:scale-105 transition duration-300 ease-in-out "
+(click)="openModal()"
+>
+Add Transaction
+</button>
+
 <div class="bg-white p-6 rounded-lg shadow-lg">
     <h3 class="text-lg font-semibold mb-4">Transactions</h3>
+
     <ul class="list-none p-0">
       <li *ngFor="let transaction of transactions" class="flex justify-between items-center mb-2">
         <div class="flex items-center">
@@ -10,13 +20,7 @@
         </span>
       </li>
     </ul>
-    <button
-      type="button"
-      class="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 focus text-white px-4 py-2 rounded-full"
-      (click)="openModal()"
-    >
-      Add Transaction
-    </button>
+
   </div>
   
   <!-- Modal -->
@@ -75,7 +79,7 @@
             </button>
             <button
               type="button"
-              class="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+              class="bg-gray-400 hover:bg-gray-500 text-white  py-2 px-4 rounded-full focus:outline-none focus:shadow-outline"
               (click)="closeModal()"
             >
               Cancel
