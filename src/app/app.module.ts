@@ -12,6 +12,7 @@ import { AuthService } from './services/auth.service';
 import { NavbarComponent } from './navbar/navbar.component';
 import { FooterComponent } from './footer/footer.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { TransactionComponent } from './components/transaction/transaction.component';
 
 
 
@@ -22,6 +23,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     DashboardComponent,
     NavbarComponent,
     FooterComponent,
+    TransactionComponent,
 
   ],
   imports: [

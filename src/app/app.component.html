@@ -1,5 +1,74 @@
 
 
-<app-navbar></app-navbar>
-<router-outlet></router-outlet>
-<app-footer></app-footer>
+<div class="min-h-screen flex">
+    <!-- Sidebar -->
+    <div *ngIf="(showSidebar$ | async)" class="w-64 bg-white shadow-lg">
+      <div class="p-4">
+        <h2 class="text-xl font-bold mb-6">E-Bank Solution</h2>
+        <nav>
+          <ul>
+            <li class="mb-4">
+              <a routerLink="/dashboard" class="flex items-center p-2 hover:bg-gray-200 rounded">
+                <span class="material-icons">dashboard</span>
+                <span class="ml-2">Dashboard</span>
+              </a>
+            </li>
+            <li class="mb-4">
+              <a routerLink="/wallet" class="flex items-center p-2 hover:bg-gray-200 rounded">
+                <span class="material-icons">account_balance_wallet</span>
+                <span class="ml-2">My Wallet</span>
+              </a>
+            </li>
+            <li class="mb-4">
+              <a routerLink="/transaction/13" class="flex items-center p-2 hover:bg-gray-200 rounded">
+                <span class="material-icons">timeline</span>
+                <span class="ml-2">Transaction</span>
+              </a>
+            </li>
+            <li class="mb-4">
+              <a routerLink="/statistics" class="flex items-center p-2 hover:bg-gray-200 rounded">
+                <span class="material-icons">bar_chart</span>
+                <span class="ml-2">Statistics</span>
+              </a>
+            </li>
+            <li class="mb-4">
+              <a routerLink="/messages" class="flex items-center p-2 hover:bg-gray-200 rounded">
+                <span class="material-icons">message</span>
+                <span class="ml-2">Message</span>
+              </a>
+            </li>
+            <li class="mb-4">
+              <a routerLink="/profile" class="flex items-center p-2 hover:bg-gray-200 rounded">
+                <span class="material-icons">person</span>
+                <span class="ml-2">Profile</span>
+              </a>
+            </li>
+            <li class="mb-4">
+              <a routerLink="/help" class="flex items-center p-2 hover:bg-gray-200 rounded">
+                <span class="material-icons">help</span>
+                <span class="ml-2">Help Support</span>
+              </a>
+            </li>
+            <li class="mb-4">
+              <a routerLink="/settings" class="flex items-center p-2 hover:bg-gray-200 rounded">
+                <span class="material-icons">settings</span>
+                <span class="ml-2">Setting</span>
+              </a>
+            </li>
+            <li>
+              <button (click)="logout()" type="button" class="flex items-center p-2 hover:bg-gray-200 rounded">
+                <span class="material-icons">logout</span>
+                <span class="ml-2">Log Out</span>
+              </button>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  
+    <!-- Main Content -->
+    <div class="flex-1 p-6">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+  

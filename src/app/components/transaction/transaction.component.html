@@ -1,0 +1,15 @@
+
+<div class="bg-white p-6 rounded-lg shadow-lg">
+    <h3 class="text-lg font-semibold mb-4">Transactions</h3>
+    <ul class="list-none p-0">
+      <li *ngFor="let transaction of transactions" class="flex justify-between items-center mb-2">
+        <div class="flex items-center">
+          <span class="ml-2">{{ transaction.description }}</span>
+        </div>
+        <span [ngClass]="{'text-green-600': transaction.typeDeTransaction === 'Credit', 'text-red-600': transaction.typeDeTransaction === 'Debit'}">
+          {{ transaction.typeDeTransaction === 'Debit' ? '-' : '+' }}{{ transaction.montant | number:'1.2-2' }}
+        </span>
+      </li>
+    </ul>
+  </div>
+  
