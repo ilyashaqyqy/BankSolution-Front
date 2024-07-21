@@ -10,7 +10,8 @@ import { Transaction } from '../../models/transaction';
 })
 export class TransactionComponent implements OnInit {
   transactions: Transaction[] = [];
-  accountId!: number;
+  isModalOpen = false;
+  transaction = { typeDeTransaction: 'Credit', montant: 0, description: '', compteId: 13 };
 
   constructor(
     private route: ActivatedRoute,
@@ -18,17 +19,32 @@ export class TransactionComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.route.paramMap.subscribe(params => {
-      this.accountId = +params.get('accountId')!;
-      this.loadTransactions();
-    });
+    this.loadTransactions();
   }
 
   loadTransactions(): void {
-    this.transactionService.getTransactionsByCompteId(this.accountId).subscribe(
+    this.transactionService.getTransactionsByCompteId(13).subscribe(
       data => this.transactions = data,
       error => console.error('Error fetching transactions', error)
     );
   }
-}
 
+  openModal() {
+    this.isModalOpen = true;
+  }
+
+  closeModal() {
+    this.isModalOpen = false;
+  }
+
+  onSubmit() {
+    this.transactionService.createTransaction(this.transaction).subscribe(
+      response => {
+        console.log('Transaction created:', response);
+        this.closeModal();
+        this.loadTransactions(); // Refresh the transaction list
+      },
+      error => console.error('Error creating transaction', error)
+    );
+  }
+}

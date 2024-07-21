@@ -1,4 +1,3 @@
-
 <div class="bg-white p-6 rounded-lg shadow-lg">
     <h3 class="text-lg font-semibold mb-4">Transactions</h3>
     <ul class="list-none p-0">
@@ -11,5 +10,79 @@
         </span>
       </li>
     </ul>
+    <button
+      type="button"
+      class="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 focus text-white px-4 py-2 rounded-full"
+      (click)="openModal()"
+    >
+      Add Transaction
+    </button>
+  </div>
+  
+  <!-- Modal -->
+  <div
+    *ngIf="isModalOpen"
+    class="fixed inset-0 flex items-center justify-center bg-gray-800 bg-opacity-50"
+  >
+    <div class="bg-white rounded-lg overflow-hidden shadow-xl max-w-md w-full">
+      <div class="px-6 py-4">
+        <div class="text-xl font-semibold mb-4">Add Transaction</div>
+        <form (ngSubmit)="onSubmit()">
+          <div class="mb-4">
+            <label class="block text-gray-700 text-sm font-bold mb-2" for="type">
+              Type
+            </label>
+            <select
+              id="type"
+              [(ngModel)]="transaction.typeDeTransaction"
+              name="typeDeTransaction"
+              class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            >
+              <option value="Credit">Credit</option>
+              <option value="Debit">Debit</option>
+            </select>
+          </div>
+          <div class="mb-4">
+            <label class="block text-gray-700 text-sm font-bold mb-2" for="amount">
+              Amount
+            </label>
+            <input
+              id="amount"
+              type="number"
+              [(ngModel)]="transaction.montant"
+              name="montant"
+              class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            />
+          </div>
+          <div class="mb-4">
+            <label class="block text-gray-700 text-sm font-bold mb-2" for="description">
+              Description
+            </label>
+            <input
+              id="description"
+              type="text"
+              [(ngModel)]="transaction.description"
+              name="description"
+              class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            />
+          </div>
+          <div class="flex items-center justify-between">
+            <button
+              type="submit"
+              class="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 focus text-white px-4 py-2 rounded-full"
+            >
+              Submit
+            </button>
+            <button
+              type="button"
+              class="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+              (click)="closeModal()"
+            >
+              Cancel
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
   </div>
   
